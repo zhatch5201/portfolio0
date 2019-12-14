@@ -1,0 +1,16 @@
+@import "./variables.scss";
+
+@keyframes alternating {
+	0% {
+		content: "Zack Hatch";
+		color: orangered;
+	}
+	50% {
+		content: "software engineer";
+		color: navy;
+	}
+}
+
+i.alternatingText {
+	animation: alternating 2.5s ease infinite;
+}

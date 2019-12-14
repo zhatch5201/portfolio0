@@ -1,0 +1,21 @@
+/* @charset 'utf-8';
+
+i#alternatingText {
+	color: #f4623a;
+	animation: newAnimation 2000ms linear infinite;
+}
+
+@keyframes newAnimation {
+	0% {
+		opacity: 0;
+	}
+	30% {
+		opacity: 1;
+	}
+	70% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+} */
