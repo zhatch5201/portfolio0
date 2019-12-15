@@ -23,6 +23,15 @@
 
   <!-- Theme CSS - Includes Bootstrap -->
   <link href="css/creative.min.css" rel="stylesheet">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152521620-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-152521620-2');
+  </script>
 
 </head>
 
@@ -228,6 +237,7 @@
       <h2 class="mb-4">Need a second opinion?</h2>
       <h3>Contact one of my referrals! <br /><br /> </h3>
       <a class="btn btn-light btn-xl" href="tel:+16024036883">Marco Moreno</a>
+      &nbsp;
       <a class="btn btn-light btn-xl" href="tel:+16232432242">Phillip Boone</a>
     </div>
   </section>
@@ -279,13 +289,23 @@
   <!-- jQuery Plugin -->
   <script src="js/jquery-3.4.1.js"></script>
   <script>
+    const i = 0;
+
     $(function colorChange() {
       $('#alternatingText').text('Zackery Hatch');
       $('#alternatingText').delay(2000).fadeOut(1000, function () {
         $(this).text('a software engineer');
-      }).fadeIn(1000).delay(2000).fadeOut(1000, function () {
-        $(this).text('a web developer');
-      }).fadeIn(1000);
+      })
+        .fadeIn(1000).delay(2000).fadeOut(1000, function () {
+          $(this).text('a web developer');
+        }).fadeIn(1000).delay(2000).fadeOut(1000, function () {
+          $(this).text('Zackery hatch');
+        }).fadeIn(1000);
+
+      // Repeater
+      if (i != 1) {
+        colorChange()
+      }
     });
   </script>
 </body>
