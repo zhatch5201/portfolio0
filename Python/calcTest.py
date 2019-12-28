@@ -54,5 +54,3 @@ def main():
 
 print("All operations will follow this format: 'x' 'operator' 'y' ")
 main()
-# You have to have multiple while functions??
-
