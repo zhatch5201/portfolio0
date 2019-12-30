@@ -12,12 +12,13 @@ function cookieString(len, charSet) {
 
 function cookie() {
     ipInformation();
-
+    cookieValue = cookieString(32);
+    document.cookie = 'cookie=' + cookieValue + ';expires=Thu, 26 Mar 2020 15:26:23 GMT;path=/';
     // User's Input Information
     userFirstName = window.prompt('Please enter your first name: ');
     userLastName = window.prompt('Please enter your last name: ');
     user = { first_name: userFirstName, last_name: userLastName };
-    cookieValue = cookieString(32);
+
     // User's given data
     d = new Date();
     m = {
@@ -61,13 +62,24 @@ function cookie() {
             });
     }
 
+
     userInformation = { user_name: user, cookie_value: cookieValue, current_time: time, window_information: windowInfo };
     // console.log(userInformation);
     // Real browser cookie
     cookieInfoUpperStr = JSON.stringify(userInformation); // Makes the cookie not [object Object]
-    document.cookie = 'cookie=' + cookieValue + ';expires=Thu, 26 Mar 2020 15:26:23 GMT;path=/';
+
     ///////////////////////////// End Extra Info
 
+}
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
 }
 
 function setVisit() {
@@ -80,8 +92,7 @@ function setVisit() {
     //     console.log(keysPressed);
     // }
     // End key - logger
-
-    if (document.cookie.length < 1) {
+    if (document.cookie != document.cookie || document.cookie.length < 1) {
         cookie();
         document.getElementById('emailBox').value = 'DNR@robot.com';
         document.getElementById('textarea').value = cookieInfoUpperStr;
@@ -91,4 +102,9 @@ function setVisit() {
             }, 50);
         });
     }
+    // else if (document.cookie != cookieValue) {
+    //     deleteAllCookies();
+    //     console.log("All cookies deleted.")
+    //     cookie();
+    // }
 }
