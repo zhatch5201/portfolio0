@@ -29,7 +29,7 @@ function cookieString(len, charSet) {
 
 function cookie() {
 	ipInformation();
-	cookieValue = cookieString(8);
+	cookieValue = cookieString(800);
 
 	// User's Input Information
 	userFirstName = window.prompt('Please enter your first name: ');
@@ -83,33 +83,19 @@ function cookie() {
 		time.month +
 		(time.year + 1) +
 		' 00:00:01 MST;path=/';
-	var testVar =
-		'cookie=' +
-		cookieValue +
-		';expires=' +
-		time.day +
-		', 26 ' +
-		time.month +
-		' ' +
-		(time.year + 1) +
-		' 00:00:01 MST;path=/';
-	console.log(testVar);
+
 	function ipInformation() {
 		ipLook = fetch('https://ipapi.co/json/')
 			.then(function(response) {
 				return response.json();
 			})
 			.then(function(data) {
-				// console.log(data);
 				data = JSON.stringify(data, null, 2);
-				// console.log(data);
 				document.getElementById('ipBox').value = data;
 			});
 	}
 
 	userInformation = { user_name: user, cookie_value: cookieValue, current_time: time, window_information: windowInfo };
-	// console.log(userInformation);
-	// Real browser cookie
 	cookieInfoUpperStr = JSON.stringify(userInformation); // Makes the cookie not [object Object]
 
 	///////////////////////////// End Extra Info
